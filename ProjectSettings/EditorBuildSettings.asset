@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/_Project/Scenes/1. Gameplay.unity
+    guid: bf31e3987827abc4980b9ed024def4cb
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: 46171bda11284004ea0c9a656cbababc, type: 2}
+    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.localization.settings: {fileID: 11400000, guid: 472c7375400f6d54eaf9ded9215df418, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 830e03e5ce72ea44fb7c498ad28fa966, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 5f8fa67e4db50cb4b85bd230aec54728, type: 2}
+  m_UseUCBPForAssetBundles: 0
