@@ -26,12 +26,6 @@ public class AN_DoorScript : MonoBehaviour
     [Tooltip("Speed for door opening, degrees per sec")]
     public float OpenSpeed = 3f;
 
-    // NearView()
-    float distance;
-    float angleView;
-    Vector3 direction;
-
-    // Hinge
     [HideInInspector]
     public Rigidbody rbDoor;
     HingeJoint hinge;
@@ -45,52 +39,22 @@ public class AN_DoorScript : MonoBehaviour
         rbDoor = GetComponent<Rigidbody>();
         hinge = GetComponent<HingeJoint>();
         HeroInteractive = FindObjectsByType<AN_HeroInteractive>(FindObjectsSortMode.None)[0];
-        _actionValue.action.performed += Action_performed; ;
+        //_actionValue.action.performed += Action_performed; ;
     }
 
     private void Action_performed(InputAction.CallbackContext _)
     {
-        if (!Remote && NearView())
+        if (!Remote)
             Action();
     }
 
     public void Action() // void to open/close door
     {
         if (!Locked)
-        {
-            // key lock checking
-            if (HeroInteractive != null && RedLocked && HeroInteractive.RedKey)
-            {
-                RedLocked = false;
-                HeroInteractive.RedKey = false;
-            }
-            else if (HeroInteractive != null && BlueLocked && HeroInteractive.BlueKey)
-            {
-                BlueLocked = false;
-                HeroInteractive.BlueKey = false;
-            }
-            
-            // opening/closing
-            if (isOpened && CanClose && !RedLocked && !BlueLocked)
-            {
-                isOpened = false;
-            }
-            else if (!isOpened && CanOpen && !RedLocked && !BlueLocked)
-            {
-                isOpened = true;
-                rbDoor.AddRelativeTorque(new Vector3(0, 0, 20f)); 
-            }
-        
+        {                        
+            isOpened = true;
+            rbDoor.AddRelativeTorque(new Vector3(0, 0, 20f));     
         }
-    }
-
-    bool NearView() // it is true if you near interactive object
-    {
-        distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-        direction = transform.position - Camera.main.transform.position;
-        angleView = Vector3.Angle(Camera.main.transform.forward, direction);
-        if (distance < 3f) return true; // angleView < 35f && 
-        else return false;
     }
 
     private void FixedUpdate() // door is physical object
