@@ -25,5 +25,10 @@ namespace XR
             if (_teleportAction.action.WasReleasedThisFrame())
                 _interactor.gameObject.SetActive(false);
         }
+
+        private void OnDestroy()
+        {
+            _teleportAction.action.performed -= OnTeleportAction;
+        }
     }
 }

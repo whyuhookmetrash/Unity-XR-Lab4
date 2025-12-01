@@ -11,7 +11,7 @@ public class AN_Button : MonoBehaviour
     [Tooltip("If it is false door can't be used")]
     public bool Locked = false;
     [Tooltip("The door for remote control")]
-    public AN_DoorScript DoorObject;
+    public Door DoorObject;
     [Space]
     [Tooltip("Any object for ramp/elevator baheviour")]
     public Transform RampObject;

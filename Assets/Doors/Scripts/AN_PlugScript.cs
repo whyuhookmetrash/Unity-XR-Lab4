@@ -10,7 +10,7 @@ public class AN_PlugScript : MonoBehaviour
     public Transform HeroHandsPosition;
     [Tooltip("SocketObject with collider(shpere, box etc.) (is trigger = true)")]
     public Collider Socket; // need Trigger
-    public AN_DoorScript DoorObject;
+    public Door DoorObject;
 
     // NearView()
     float distance;
